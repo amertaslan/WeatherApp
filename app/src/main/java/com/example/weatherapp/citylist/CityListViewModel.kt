@@ -13,12 +13,12 @@ import kotlinx.coroutines.launch
 
 class CityListViewModel(private val useCase: UseCase) : ViewModel() {
 
-    fun fetchCityListResponse(key: String, q: String) : MutableLiveData<CityData> {
-        val result = MutableLiveData<CityData>()
+    fun fetchCityListResponse(key: String, q: String) : MutableLiveData<List<CityData>> {
+        val result = MutableLiveData<List<CityData>>()
         viewModelScope.launch {
             useCase.getCityList(key, q).collect { response ->
                 response.let {
-                    result.postValue(it.body()!![0])
+                    result.postValue(it.body())
                 }
             }
         }
