@@ -1,13 +1,13 @@
 package com.example.weatherapp.di
 
-import com.example.weatherapp.weathercore.RemoteDataSource
-import com.example.weatherapp.weathercore.Repository
+import com.example.weatherapp.weathercore.HomeRemoteDataSource
+import com.example.weatherapp.weathercore.HomeRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
 
-    fun provideRepository(remoteDataSource: RemoteDataSource): Repository {
-        return Repository(remoteDataSource)
+    fun provideRepository(homeRemoteDataSource: HomeRemoteDataSource): HomeRepository {
+        return HomeRepository(homeRemoteDataSource)
     }
     single { provideRepository(get()) }
 }

@@ -1,6 +1,5 @@
 package com.example.weatherapp.weathercore
 
-import com.example.weatherapp.database.citylist.CityData
 /*
 class LocalDataSource(private val appDatabase: AppDatabase) {
 

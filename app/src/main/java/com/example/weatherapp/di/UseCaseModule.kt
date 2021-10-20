@@ -1,14 +1,13 @@
 package com.example.weatherapp.di
 
-import com.example.weatherapp.weathercore.RemoteDataSource
-import com.example.weatherapp.weathercore.Repository
-import com.example.weatherapp.weathercore.UseCase
+import com.example.weatherapp.weathercore.HomeRepository
+import com.example.weatherapp.weathercore.HomeUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
 
-    fun provideUseCase(repository: Repository): UseCase {
-        return UseCase(repository)
+    fun provideUseCase(homeRepository: HomeRepository): HomeUseCase {
+        return HomeUseCase(homeRepository)
     }
     single { provideUseCase(get()) }
 }
