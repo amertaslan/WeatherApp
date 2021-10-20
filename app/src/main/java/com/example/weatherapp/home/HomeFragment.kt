@@ -9,12 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentHomeBinding
-import com.example.weatherapp.databinding.LayoutViewPagerItemBinding
 import com.example.weatherapp.util.Constants
-import kotlinx.android.synthetic.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener {
@@ -23,8 +20,7 @@ class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener {
     private lateinit var binding: FragmentHomeBinding
     private var searchKeyWord: String = ""
     private var pageList: ArrayList<ViewPagerItemModel> = arrayListOf()
-    private lateinit var textView: TextView
-    private lateinit var viewPagerBinding: LayoutViewPagerItemBinding
+    private lateinit var viewPagerItemModel: ViewPagerItemModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,16 +56,16 @@ class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener {
 
     private fun getCityCurrentWeather(selected: String) {
         viewModel.fetchCityCurrentResponse(Constants.API_KEY, selected).observe(viewLifecycleOwner, {
-            val viewPagerItemModel = ViewPagerItemModel(R.layout.layout_view_pager_item, it.location.region)
+            viewPagerItemModel = ViewPagerItemModel(R.layout.layout_view_pager_item, it.location.region)
             addNewPageToList(viewPagerItemModel)
         })
     }
 
     override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        searchKeyWord = binding.homeFragmentAutoCompleteTextview.text.toString()
+        /*searchKeyWord = binding.homeFragmentAutoCompleteTextview.text.toString()
         if (searchKeyWord.isNotEmpty()) {
             getCityList()
-        }
+        }*/
     }
 
     override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -80,10 +76,10 @@ class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener {
     }
 
     override fun afterTextChanged(p0: Editable?) {
-        searchKeyWord = binding.homeFragmentAutoCompleteTextview.text.toString()
+        /*searchKeyWord = binding.homeFragmentAutoCompleteTextview.text.toString()
         if (searchKeyWord.isNotEmpty()) {
             getCityList()
-        }
+        }*/
     }
 
     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
@@ -91,7 +87,4 @@ class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener {
         getCityCurrentWeather(selected)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
 }
