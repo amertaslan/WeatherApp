@@ -16,4 +16,10 @@ class HomeUseCase(private val homeRepository: HomeRepository) {
             response
         }
     }
+
+    suspend fun getCityForecastWeather(key: String, q: String) : Flow<Response<CityForecastResponse>> {
+        return homeRepository.getCityForecastWeather(key, q).map { response ->
+            response
+        }
+    }
 }

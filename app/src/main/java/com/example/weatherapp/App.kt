@@ -20,7 +20,8 @@ class App : Application() {
                 networkModule,
                 remoteDataSourceModule,
                 repositoryModule,
-                viewModelModule
+                homeViewModelModule,
+                detailViewModelModule
             )
         }
     }

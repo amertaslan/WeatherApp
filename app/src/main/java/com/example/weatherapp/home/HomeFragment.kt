@@ -9,18 +9,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentHomeBinding
 import com.example.weatherapp.util.Constants
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener {
+class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener, View.OnClickListener {
 
-    private val viewModel by viewModel<HomeFragmentViewModel>()
+    private val viewModel by viewModel<HomeViewModel>()
     private lateinit var binding: FragmentHomeBinding
     private var searchKeyWord: String = ""
     private var pageList: ArrayList<ViewPagerItemModel> = arrayListOf()
     private lateinit var viewPagerItemModel: ViewPagerItemModel
+    private var selected: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +33,8 @@ class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener {
         binding.homeFragmentAutoCompleteTextview.addTextChangedListener(this)
 
         binding.homeFragmentAutoCompleteTextview.onItemClickListener = this
+
+        binding.detailButton.setOnClickListener(this)
 
         return binding.root
     }
@@ -56,7 +60,7 @@ class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener {
 
     private fun getCityCurrentWeather(selected: String) {
         viewModel.fetchCityCurrentResponse(Constants.API_KEY, selected).observe(viewLifecycleOwner, {
-            viewPagerItemModel = ViewPagerItemModel(R.layout.layout_view_pager_item, it.location.region)
+            viewPagerItemModel = ViewPagerItemModel(R.layout.layout_view_pager_item, it.location.region, it.current.temp_c)
             addNewPageToList(viewPagerItemModel)
         })
     }
@@ -83,8 +87,12 @@ class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        val selected: String = p0?.getItemAtPosition(p2).toString()
-        getCityCurrentWeather(selected)
+        selected = p0?.getItemAtPosition(p2).toString()
+        getCityCurrentWeather(selected!!)
+    }
+
+    override fun onClick(p0: View?) {
+        this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(selected!!))
     }
 
 }

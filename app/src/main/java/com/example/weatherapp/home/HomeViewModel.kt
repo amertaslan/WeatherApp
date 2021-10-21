@@ -9,7 +9,7 @@ import com.example.weatherapp.weathercore.HomeUseCase
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class HomeFragmentViewModel(private val homeUseCase: HomeUseCase) : ViewModel() {
+class HomeViewModel(private val homeUseCase: HomeUseCase) : ViewModel() {
 
     fun fetchCityListResponse(key: String, q: String) : MutableLiveData<List<CityListResponse>> {
         val result = MutableLiveData<List<CityListResponse>>()

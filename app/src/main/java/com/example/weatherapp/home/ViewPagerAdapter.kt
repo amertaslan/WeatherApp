@@ -12,6 +12,7 @@ class ViewPagerAdapter(private val pageList: List<ViewPagerItemModel>) : PagerAd
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         return LayoutInflater.from(container.context).inflate(pageList[position].layoutId, container, false).apply {
             this.findViewById<TextView>(R.id.city_name_text).text = pageList[position].cityName
+            this.findViewById<TextView>(R.id.weather_degree_text).text = pageList[position].degree
             container.addView(this)
             notifyDataSetChanged()
         }

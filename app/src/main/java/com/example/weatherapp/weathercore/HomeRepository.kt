@@ -20,4 +20,11 @@ class HomeRepository(private val homeRemoteDataSource: HomeRemoteDataSource) {
             emit(response)
         }.flowOn(Dispatchers.IO)
     }
+
+    suspend fun getCityForecastWeather(key: String, q: String): Flow<Response<CityForecastResponse>> {
+        val response = homeRemoteDataSource.getCityForecastWeather(key, q)
+        return flow {
+            emit(response)
+        }.flowOn(Dispatchers.IO)
+    }
 }
