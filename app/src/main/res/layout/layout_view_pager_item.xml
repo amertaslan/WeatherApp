@@ -16,13 +16,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/weather_degree_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="31"
+    <ImageView
+        android:id="@+id/weather_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="@dimen/text_view_margin_medium"
-        android:textSize="@dimen/text_size_large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/city_name_text"/>
@@ -31,23 +29,83 @@
         android:id="@+id/weather_situation_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Cloudy"
-        android:textSize="@dimen/text_size_medium"
         android:layout_marginTop="@dimen/text_view_margin_small"
-        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/belgrano"
+        android:textSize="@dimen/text_size_medium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weather_degree_text"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_image"
+        tools:text="Cloudy" />
 
     <TextView
-        android:id="@+id/weather_day_night_degree_text"
+        android:id="@+id/weather_degree_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="31 / 10"
-        android:textSize="@dimen/text_size_medium"
-        android:layout_marginTop="@dimen/text_view_margin_small"
+        android:layout_marginStart="@dimen/margin_xxlarge"
+        android:layout_marginTop="28dp"
+        android:text="@string/weather_degree_text"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@id/weather_degree_c_text"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_situation_text" />
+
+    <TextView
+        android:id="@+id/weather_degree_c_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_view_margin_medium"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintEnd_toStartOf="@id/weather_degree_f_text"
+        app:layout_constraintStart_toEndOf="@id/weather_degree_text"
+        app:layout_constraintTop_toBottomOf="@id/weather_situation_text"
+        tools:text="31" />
+
+    <TextView
+        android:id="@+id/weather_degree_f_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="31"
+        android:layout_marginEnd="@dimen/margin_xxlarge"
+        android:layout_marginTop="@dimen/text_view_margin_medium"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toEndOf="@id/weather_degree_c_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/weather_situation_text"/>
+
+    <TextView
+        android:id="@+id/weather_felt_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_xxlarge"
+        android:layout_marginTop="28dp"
+        android:text="@string/weather_felt_text"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@id/weather_felt_c_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_degree_text" />
+
+    <TextView
+        android:id="@+id/weather_felt_c_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_view_margin_medium"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintEnd_toStartOf="@id/weather_felt_f_text"
+        app:layout_constraintStart_toEndOf="@id/weather_felt_text"
+        app:layout_constraintTop_toBottomOf="@id/weather_degree_text"
+        tools:text="31" />
+
+    <TextView
+        android:id="@+id/weather_felt_f_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="31"
+        android:layout_marginEnd="@dimen/margin_xxlarge"
+        android:layout_marginTop="@dimen/text_view_margin_medium"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toEndOf="@id/weather_felt_c_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_degree_text"/>
 
 
 

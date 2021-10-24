@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">WeatherApp</string>
     <string name="auto_complete_textview_hint">Search for a city</string>
+    <string name="weather_degree_text">Sıcaklık:</string>
+    <string name="weather_felt_text">Hissedilen:</string>
+    <string name="go_detail_button_text">Detail</string>
 </resources>

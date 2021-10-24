@@ -32,7 +32,7 @@
             android:id="@+id/detail_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Detail"
+            android:text="@string/go_detail_button_text"
             android:layout_marginBottom="@dimen/text_view_margin_large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -11,9 +11,13 @@ data class LocationResponse (
 
 data class CurrentResponse (
     val temp_c: String,
+    val temp_f: String,
+    val feelslike_c: String,
+    val feelslike_f: String,
     val condition: ConditionResponse
 )
 
 data class ConditionResponse (
-    val text: String
+    val text: String,
+    val icon: String
 )
