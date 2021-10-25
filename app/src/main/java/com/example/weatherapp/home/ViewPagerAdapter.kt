@@ -9,6 +9,8 @@ import com.example.weatherapp.R
 
 class ViewPagerAdapter(private val pageList: List<ViewPagerItemModel>) : PagerAdapter() {
 
+    private val position: Int = 0
+
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         return LayoutInflater.from(container.context).inflate(pageList[position].layoutId, container, false).apply {
             this.findViewById<TextView>(R.id.city_name_text).text = pageList[position].cityName
@@ -18,7 +20,6 @@ class ViewPagerAdapter(private val pageList: List<ViewPagerItemModel>) : PagerAd
             this.findViewById<TextView>(R.id.weather_felt_c_text).text = pageList[position].feelsLikeC
             this.findViewById<TextView>(R.id.weather_felt_f_text).text = pageList[position].feelsLikeF
             container.addView(this)
-            notifyDataSetChanged()
         }
     }
 
@@ -30,8 +31,5 @@ class ViewPagerAdapter(private val pageList: List<ViewPagerItemModel>) : PagerAd
         return view == `object`
     }
 
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container.removeAllViews()
-        notifyDataSetChanged()
-    }
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {}
 }

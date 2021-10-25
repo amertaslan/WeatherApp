@@ -107,6 +107,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/weather_degree_text"/>
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

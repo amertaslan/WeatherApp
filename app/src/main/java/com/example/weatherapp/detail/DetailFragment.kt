@@ -29,7 +29,7 @@ class DetailFragment : Fragment() {
 
     private fun getCityForecastWeather(cityName: String) {
         viewModel.fetchCityForecastWeather(Constants.API_KEY, cityName).observe(viewLifecycleOwner, {
-            binding.test.text = it.current.temp_c
+            binding.forecastList.adapter = DetailAdapter(viewModel.getForecastData(it!!))
         })
     }
 }

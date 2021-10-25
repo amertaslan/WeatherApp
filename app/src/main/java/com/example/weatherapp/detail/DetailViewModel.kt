@@ -11,6 +11,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class DetailViewModel(private val homeUseCase: HomeUseCase) : ViewModel() {
+
+    private val forecastData: List<DetailModel> = listOf()
+
     fun fetchCityForecastWeather(key: String, q: String) : MutableLiveData<CityForecastResponse> {
         val result = MutableLiveData<CityForecastResponse>()
         viewModelScope.launch {
@@ -24,4 +27,14 @@ class DetailViewModel(private val homeUseCase: HomeUseCase) : ViewModel() {
         }
         return result
     }
+
+    fun getForecastData(response: CityForecastResponse) : List<DetailModel> {
+        response.forecast.forecastday.forEach { hourResponse ->
+            hourResponse.hour.forEach {
+                forecastData.plusElement(DetailModel(it.temp_c, it.time))
+            }
+        }
+        return forecastData
+    }
+
 }
