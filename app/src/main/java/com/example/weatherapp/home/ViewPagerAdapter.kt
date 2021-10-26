@@ -3,9 +3,11 @@ package com.example.weatherapp.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.example.weatherapp.R
+import com.example.weatherapp.util.bindImage
 
 class ViewPagerAdapter(private val pageList: List<ViewPagerItemModel>) : PagerAdapter() {
 
@@ -19,6 +21,7 @@ class ViewPagerAdapter(private val pageList: List<ViewPagerItemModel>) : PagerAd
             this.findViewById<TextView>(R.id.weather_degree_f_text).text = pageList[position].tempF
             this.findViewById<TextView>(R.id.weather_felt_c_text).text = pageList[position].feelsLikeC
             this.findViewById<TextView>(R.id.weather_felt_f_text).text = pageList[position].feelsLikeF
+            bindImage(this.findViewById(R.id.weather_image), "https:" + pageList[position].icon)
             container.addView(this)
         }
     }

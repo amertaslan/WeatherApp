@@ -60,7 +60,7 @@ class HomeFragment : Fragment(), TextWatcher, AdapterView.OnItemClickListener, V
 
     private fun getCityCurrentWeather(selected: String) {
         viewModel.fetchCityCurrentResponse(Constants.API_KEY, selected).observe(viewLifecycleOwner, {
-            viewPagerItemModel = ViewPagerItemModel(R.layout.layout_view_pager_item, it.location.region, it.current.temp_c, it.current.temp_f, it.current.feelslike_c, it.current.feelslike_f, it.current.condition.text)
+            viewPagerItemModel = ViewPagerItemModel(R.layout.layout_view_pager_item, it.location.region, it.current.temp_c, it.current.temp_f, it.current.feelslike_c, it.current.feelslike_f, it.current.condition.text, it.current.condition.icon)
             addNewPageToList(viewPagerItemModel)
         })
     }

@@ -7,5 +7,6 @@ data class ViewPagerItemModel (
     val tempF: String,
     val feelsLikeC: String,
     val feelsLikeF: String,
-    val degreeText: String
+    val degreeText: String,
+    val icon: String
 )

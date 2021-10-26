@@ -27,14 +27,4 @@ class DetailViewModel(private val homeUseCase: HomeUseCase) : ViewModel() {
         }
         return result
     }
-
-    fun getForecastData(response: CityForecastResponse) : List<DetailModel> {
-        response.forecast.forecastday.forEach { hourResponse ->
-            hourResponse.hour.forEach {
-                forecastData.plusElement(DetailModel(it.temp_c, it.time))
-            }
-        }
-        return forecastData
-    }
-
 }

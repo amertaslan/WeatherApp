@@ -1,7 +1,9 @@
 package com.example.weatherapp.weathercore
 
 data class CityForecastResponse (
-    val forecast: ForecastResponse
+    val forecast: ForecastResponse,
+    val location: LocationResponse,
+    val current: CurrentResponse
 )
 
 data class ForecastResponse (
