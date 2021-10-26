@@ -5,15 +5,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".home.HomeFragment">
+        tools:context=".home.HomeFragment"
+        android:background="#0D5063">
 
         <AutoCompleteTextView
             android:id="@+id/home_fragment_auto_complete_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/auto_complete_textview_hint"
+            android:fontFamily="@font/ubuntu"
             android:layout_marginHorizontal="@dimen/text_view_margin_medium"
             android:layout_marginTop="@dimen/text_view_margin_medium"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,6 +37,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/go_detail_button_text"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/ubuntu"
+            android:backgroundTint="#FD287E"
             android:layout_marginBottom="@dimen/text_view_margin_large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

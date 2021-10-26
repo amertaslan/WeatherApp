@@ -10,14 +10,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/purple_500">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="40dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTint="@color/purple_500"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +31,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_large"
+                    android:textSize="@dimen/text_size_small"
+                    android:fontFamily="@font/ubuntu"
                     android:text="@{model.hour}"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
@@ -38,8 +43,50 @@
                     android:id="@+id/detail_weather_degree_c_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_large"
-                    android:text="@{model.temp}"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/ubuntu"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:textSize="@dimen/text_size_small"
+                    android:text="@{model.tempC}"
+                    app:layout_constraintEnd_toStartOf="@id/celcius_degree_symbol"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/celcius_degree_symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/celsius_symbol"
+                    android:fontFamily="@font/ubuntu"
+                    android:layout_marginEnd="@dimen/margin_xxlarge"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintEnd_toEndOf="@id/detail_weather_degree_f_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/detail_weather_degree_f_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/ubuntu"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:textSize="@dimen/text_size_small"
+                    android:text="@{model.tempF}"
+                    app:layout_constraintEnd_toStartOf="@id/fahrenheit_degree_symbol"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/fahrenheit_degree_symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fahrenheit_symbol"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>

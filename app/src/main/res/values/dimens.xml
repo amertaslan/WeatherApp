@@ -5,10 +5,12 @@
     <dimen name="text_view_margin_small">8dp</dimen>
     <dimen name="margin_xxlarge">60dp</dimen>
     <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_xlarge">32dp</dimen>
     <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_small">8dp</dimen>
     <dimen name="text_size_large">80sp</dimen>
     <dimen name="text_size_medium">40sp</dimen>
+    <dimen name="text_size_normal">25sp</dimen>
     <dimen name="text_size_small">20sp</dimen>
 
 </resources>

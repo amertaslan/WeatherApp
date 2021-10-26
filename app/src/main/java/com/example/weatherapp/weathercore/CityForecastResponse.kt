@@ -16,5 +16,6 @@ data class ForecastDayResponse (
 
 data class HourResponse (
     val time: String,
-    val temp_c: String
+    val temp_c: String,
+    val temp_f: String
 )

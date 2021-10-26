@@ -4,4 +4,6 @@
     <string name="weather_degree_text">Sıcaklık:</string>
     <string name="weather_felt_text">Hissedilen:</string>
     <string name="go_detail_button_text">Detail</string>
+    <string name="celsius_symbol">\u2103</string>
+    <string name="fahrenheit_symbol">\u2109</string>
 </resources>

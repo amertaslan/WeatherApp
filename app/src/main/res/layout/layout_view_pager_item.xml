@@ -9,9 +9,10 @@
         android:id="@+id/city_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="İzmir"
+        android:textColor="@color/text_color"
+        android:fontFamily="@font/ubuntu"
         android:layout_marginTop="@dimen/text_view_margin_large"
-        android:textSize="@dimen/text_size_small"
+        android:textSize="@dimen/text_size_normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -20,7 +21,7 @@
         android:id="@+id/weather_image"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="@dimen/text_view_margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/city_name_text"/>
@@ -30,7 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/text_view_margin_small"
-        android:fontFamily="@font/belgrano"
+        android:fontFamily="@font/ubuntu"
+        android:textColor="@color/white"
         android:textSize="@dimen/text_size_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,10 +41,12 @@
 
     <TextView
         android:id="@+id/weather_degree_text"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_xxlarge"
-        android:layout_marginTop="28dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ubuntu"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_xlarge"
         android:text="@string/weather_degree_text"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintEnd_toStartOf="@id/weather_degree_c_text"
@@ -54,30 +58,60 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/text_view_margin_medium"
-        android:textSize="@dimen/text_size_medium"
-        app:layout_constraintEnd_toStartOf="@id/weather_degree_f_text"
+        android:fontFamily="@font/ubuntu"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@id/home_celcius_symbol_a"
         app:layout_constraintStart_toEndOf="@id/weather_degree_text"
+        app:layout_constraintTop_toBottomOf="@id/weather_situation_text" />
+
+    <TextView
+        android:id="@+id/home_celcius_symbol_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_view_margin_medium"
+        android:fontFamily="@font/ubuntu"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        android:text="@string/celsius_symbol"
         app:layout_constraintTop_toBottomOf="@id/weather_situation_text"
-        tools:text="31" />
+        app:layout_constraintStart_toEndOf="@id/weather_degree_c_text"
+        app:layout_constraintEnd_toStartOf="@id/weather_degree_f_text"/>
 
     <TextView
         android:id="@+id/weather_degree_f_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="31"
-        android:layout_marginEnd="@dimen/margin_xxlarge"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ubuntu"
         android:layout_marginTop="@dimen/text_view_margin_medium"
-        android:textSize="@dimen/text_size_medium"
-        app:layout_constraintStart_toEndOf="@id/weather_degree_c_text"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@id/home_celcius_symbol_a"
+        app:layout_constraintEnd_toStartOf="@id/home_fahrenheit_symbol_a"
         app:layout_constraintTop_toBottomOf="@id/weather_situation_text"/>
 
     <TextView
-        android:id="@+id/weather_felt_text"
+        android:id="@+id/home_fahrenheit_symbol_a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_xxlarge"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="@dimen/text_view_margin_medium"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:text="@string/fahrenheit_symbol"
+        android:fontFamily="@font/ubuntu"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/weather_degree_f_text"
+        app:layout_constraintTop_toBottomOf="@id/weather_situation_text" />
+
+    <TextView
+        android:id="@+id/weather_felt_text"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_xlarge"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ubuntu"
         android:text="@string/weather_felt_text"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintEnd_toStartOf="@id/weather_felt_c_text"
@@ -89,22 +123,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/text_view_margin_medium"
-        android:textSize="@dimen/text_size_medium"
-        app:layout_constraintEnd_toStartOf="@id/weather_felt_f_text"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ubuntu"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@id/home_celcius_symbol_b"
         app:layout_constraintStart_toEndOf="@id/weather_felt_text"
-        app:layout_constraintTop_toBottomOf="@id/weather_degree_text"
-        tools:text="31" />
+        app:layout_constraintTop_toBottomOf="@id/weather_degree_c_text" />
+
+    <TextView
+        android:id="@+id/home_celcius_symbol_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_view_margin_medium"
+        android:fontFamily="@font/ubuntu"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        android:text="@string/celsius_symbol"
+        app:layout_constraintTop_toBottomOf="@id/home_celcius_symbol_a"
+        app:layout_constraintStart_toEndOf="@id/weather_felt_c_text"
+        app:layout_constraintEnd_toStartOf="@id/weather_felt_f_text"/>
 
     <TextView
         android:id="@+id/weather_felt_f_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="31"
-        android:layout_marginEnd="@dimen/margin_xxlarge"
+        android:fontFamily="@font/ubuntu"
+        android:textColor="@color/white"
         android:layout_marginTop="@dimen/text_view_margin_medium"
-        android:textSize="@dimen/text_size_medium"
-        app:layout_constraintStart_toEndOf="@id/weather_felt_c_text"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@id/home_celcius_symbol_b"
+        app:layout_constraintEnd_toStartOf="@id/home_fahrenheit_symbol_b"
+        app:layout_constraintTop_toBottomOf="@id/weather_degree_f_text" />
+
+    <TextView
+        android:id="@+id/home_fahrenheit_symbol_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_view_margin_medium"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:text="@string/fahrenheit_symbol"
+        android:fontFamily="@font/ubuntu"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weather_degree_text"/>
+        app:layout_constraintStart_toEndOf="@id/weather_felt_f_text"
+        app:layout_constraintTop_toBottomOf="@id/home_fahrenheit_symbol_a" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

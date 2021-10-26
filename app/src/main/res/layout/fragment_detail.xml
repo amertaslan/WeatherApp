@@ -5,37 +5,96 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".detail.DetailFragment">
+        tools:context=".detail.DetailFragment"
+        android:background="@color/purple_500">
 
         <TextView
             android:id="@+id/detail_city_name_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="@dimen/text_size_small"
+            android:fontFamily="@font/ubuntu"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color"
             android:layout_marginTop="@dimen/margin_large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/detail_date_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="@font/ubuntu"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/margin_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_city_name_text_view"/>
 
         <ImageView
             android:id="@+id/detail_image"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="@dimen/margin_medium"
-            app:layout_constraintBottom_toTopOf="@id/detail_degree"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_city_name_text_view" />
+            app:layout_constraintTop_toBottomOf="@id/detail_date_text_view" />
 
         <TextView
-            android:id="@+id/detail_degree"
+            android:id="@+id/detail_degree_c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/text_color"
+            android:fontFamily="@font/ubuntu"
+            android:layout_marginStart="@dimen/margin_xxlarge"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/detail_celcius_symbol"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_color"
+            app:layout_constraintTop_toBottomOf="@id/detail_image"
+            app:layout_constraintBottom_toTopOf="@id/forecast_list"/>
+
+        <TextView
+            android:id="@+id/detail_celcius_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color"
+            android:fontFamily="@font/ubuntu"
+            android:text="@string/celsius_symbol"
+            android:layout_marginEnd="@dimen/margin_large"
+            app:layout_constraintStart_toEndOf="@id/detail_degree_c"
+            app:layout_constraintEnd_toStartOf="@id/detail_degree_f"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintTop_toBottomOf="@id/detail_image"
+            app:layout_constraintBottom_toTopOf="@id/forecast_list"/>
+
+        <TextView
+            android:id="@+id/detail_degree_f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu"
+            app:layout_constraintStart_toEndOf="@id/detail_celcius_symbol"
+            app:layout_constraintEnd_toStartOf="@id/detail_fahrenheit_symbol"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_color"
+            app:layout_constraintTop_toBottomOf="@id/detail_image"
+            app:layout_constraintBottom_toTopOf="@id/forecast_list"/>
+
+        <TextView
+            android:id="@+id/detail_fahrenheit_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fahrenheit_symbol"
+            android:fontFamily="@font/ubuntu"
+            app:layout_constraintStart_toEndOf="@id/detail_degree_f"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="@dimen/text_size_medium"
+            android:layout_marginEnd="@dimen/margin_xxlarge"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_color"
             app:layout_constraintTop_toBottomOf="@id/detail_image"
             app:layout_constraintBottom_toTopOf="@id/forecast_list"/>
 
@@ -43,16 +102,15 @@
             android:id="@+id/forecast_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_xxlarge"
             android:layout_marginStart="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_large"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_degree"
-            tools:listitem="@layout/layout_recycler_view_item"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_image"
+            tools:listitem="@layout/layout_recycler_view_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

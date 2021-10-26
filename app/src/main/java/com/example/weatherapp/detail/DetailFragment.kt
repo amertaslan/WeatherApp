@@ -39,10 +39,13 @@ class DetailFragment : Fragment() {
             viewModel.fetchCityForecastWeather(Constants.API_KEY, cityName).observe(viewLifecycleOwner, { response ->
                 binding.detailCityNameTextView.text = response.location.region
                 bindImage(binding.detailImage, "https:" + response.current.condition.icon)
-                binding.detailDegree.text = response.current.temp_c
+                binding.detailDegreeC.text = response.current.temp_c
+                binding.detailDegreeF.text = response.current.temp_f
                 response.forecast.forecastday.forEach { hourResponse ->
                     hourResponse.hour.forEach {
-                        forecastData.add(DetailModel(it.temp_c, it.time))
+                        val splitList = it.time.split(" ")
+                        binding.detailDateTextView.text = splitList[0]
+                        forecastData.add(DetailModel(it.temp_c, it.temp_f, splitList[1]))
                     }
                 }
                 binding.forecastList.adapter = DetailAdapter(forecastData)
